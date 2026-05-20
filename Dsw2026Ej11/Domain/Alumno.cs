@@ -5,16 +5,18 @@ public class Alumno
     public int Id { get; }
     public string Nombre { get; }
     public double Promedio { get; }
+    public int Legajo { get; }
 
-    public Alumno(int id, string nombre, double promedio)
+    public Alumno(int id, string nombre, double promedio, int legajo)
     {
         Id = id;
         Nombre = nombre;
         Promedio = promedio;
+        Legajo = legajo;
     }
 
     public override string ToString()
     {
-        return $"{Id} - {Nombre} - Promedio: {Promedio}";
+        return $"{Id} - {Nombre} - Legajo: {Legajo} - Promedio: {Promedio}";
     }
 }
