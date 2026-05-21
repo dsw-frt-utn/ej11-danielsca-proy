@@ -110,6 +110,69 @@ internal class Ejemplos
     //Realizar una llamada a cada método definido en CasoLinq y mostrar por consola según corresponda
     public static void EjemploLinq()
     {
+        var linqVariable = new CasoLinq();
+
+        Console.WriteLine("PRIMER LIBRO");
+        var libroPrimero = linqVariable.GetPrimero();
+        Console.WriteLine(libroPrimero?.ToString());
+        Console.WriteLine("\n");
+
+        Console.WriteLine("ULTIMO LIBRO");
+        var libroUltimo = linqVariable.GetUltimo();
+        Console.WriteLine(libroUltimo?.ToString());
+        Console.WriteLine("\n");
+
+        Console.WriteLine("TOTAL PRECIOS");
+        var totalPrecios = linqVariable.GetTotalPrecios();
+        Console.WriteLine($"TotalPrecios: {totalPrecios}");
+        Console.WriteLine("\n");
+
+        Console.WriteLine("PROMEDIO PRECIOS");
+        var promedioPrecios = linqVariable.GetPromedioPrecios();
+        Console.WriteLine($"PromedioPrecios: {promedioPrecios}");
+        Console.WriteLine("\n");
+
+        Console.WriteLine("LISTA DE LIBROS POR ID");
+        var librosListById = linqVariable.GetListBy();
+        foreach(var item in librosListById)
+        {
+            Console.WriteLine(item?.ToString());
+        }
+        Console.WriteLine("\n");
+
+        Console.WriteLine("LISTA DE LIBROS");
+        var librosList = linqVariable.GetLibros();
+        foreach(var item in librosList)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("\n");
+
+        Console.WriteLine("LIBRO CON MAYOR PRECIO");
+        var libroMayorPrecio = linqVariable.GetMayorPrecio();
+        Console.WriteLine(libroMayorPrecio?.ToString());
+        Console.WriteLine("\n");
+
+        Console.WriteLine("LIBRO CON MENOR PRECIO");
+        var libroMenorPrecio = linqVariable.GetMenorPrecio();
+        Console.WriteLine(libroMenorPrecio?.ToString());
+        Console.WriteLine("\n");
+
+        Console.WriteLine("LIBROS MAYOR AL PROMEDIO");
+        var librosMayorPromedio = linqVariable.GetMayorPromedio();
+        foreach (var item in librosMayorPromedio)
+        {
+            Console.WriteLine(item?.ToString());
+        }
+        Console.WriteLine("\n");
+
+        Console.WriteLine("LIBROS ORDENADOS POR TITULO DESCENDENTE");
+        var librosOrdenadosPorTituloDesc = linqVariable.GetOrdenadosPorTituloDesc();
+        foreach (var item in librosOrdenadosPorTituloDesc)
+        {
+            Console.WriteLine(item?.ToString());
+        }
+        
 
     }
 }
