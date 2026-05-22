@@ -36,14 +36,12 @@ public class CasoLinq
                                                 .Average(libro => libro.Precio);
 
     // Oetener la lista de libros con Id mayor a 15
-    public List<Libro> GetListBy() => Libro.CrearLista()
-                                           .Where(librito => librito.Id > 15)
-                                           .ToList();
+    public IEnumerable<Libro> GetListBy() => Libro.CrearLista()
+                                           .Where(librito => librito.Id > 15);
 
     // Obtener una lista de cada libro con su título y precio en formato moneda
-    public List<string> GetLibros() => Libro.CrearLista()   
-                                            .Select(librito => $"{librito.Titulo}: {librito.Precio:C}")
-                                            .ToList();
+    public IEnumerable<string> GetLibros() => Libro.CrearLista()   
+                                            .Select(librito => $"{librito.Titulo}: {librito.Precio:C}");
 
     // Obtener el libro con el precio más alto
     public Libro? GetMayorPrecio() => Libro.CrearLista()
@@ -56,17 +54,14 @@ public class CasoLinq
                                            .First();
 
     // Obtener los libros cuyo precio sea mayor al promedio
-    public List<Libro> GetMayorPromedio()
+    public IEnumerable<Libro> GetMayorPromedio()
     {
-        var promedio = GetPromedioPrecios();
         return Libro.CrearLista()   
-                    .Where(librito => librito.Precio > promedio)
-                    .ToList();
+                    .Where(librito => librito.Precio > Libro.CrearLista().Average(libro => libro.Precio));
     }
 
     // Obtener los libros ordenados por título de forma descendente
-    public List<Libro> GetOrdenadosPorTituloDesc() => Libro.CrearLista()
-                                                           .OrderByDescending(librito => librito.Titulo)
-                                                           .ToList();
+    public IEnumerable<Libro> GetOrdenadosPorTituloDesc() => Libro.CrearLista()
+                                                           .OrderByDescending(librito => librito.Titulo);
 
 }
